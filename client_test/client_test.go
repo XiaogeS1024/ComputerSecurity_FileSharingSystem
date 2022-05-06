@@ -1,8 +1,5 @@
 package client_test
 
-// You MUST NOT change these default imports.  ANY additional imports may
-// break the autograder and everyone will be sad.
-
 import (
 	// Some imports use an underscore to prevent the compiler from complaining
 	// about unused imports.
@@ -37,12 +34,6 @@ const emptyString = ""
 const contentOne = "Bitcoin is Nick's favorite "
 const contentTwo = "digital "
 const contentThree = "cryptocurrency!"
-
-// ================================================
-// Describe(...) blocks help you organize your tests
-// into functional categories. They can be nested into
-// a tree-like structure.
-// ================================================
 
 var _ = Describe("Client Tests", func() {
 
@@ -491,17 +482,6 @@ var _ = Describe("Client Tests", func() {
 		})
 	})
 
-	// Describe("Test4.5:", func() {
-	// 	Specify("Test4.5: calling client APIs without initialization", func() {
-	// 		userlib.DebugMsg("Getting user Alice.")
-	// 		alice, err = client.GetUser("alice", defaultPassword)
-	// 		Expect(err).ToNot(BeNil())
-
-	// 		err = alice.StoreFile(aliceFile, []byte(contentOne))
-	// 		Expect(err).ToNot(BeNil())
-	// 	})
-	// })
-
 	Describe("Test4.4", func() {
 		Specify("Test4.4: revoke then invite the same", func() {
 			//Init alice
@@ -941,104 +921,6 @@ var _ = Describe("Client Tests", func() {
 		})
 	})
 
-	// Describe("Test4.4", func() {
-	// 	Specify("Test4.4: a load b and b load a", func() {
-	// 		//Init alice
-	// 		alice, err = client.InitUser("alice", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		err = alice.StoreFile(aliceFile, []byte(contentOne))
-	// 		Expect(err).To(BeNil())
-	// 		//Init bob
-	// 		bob, err = client.InitUser("bob", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		err = bob.StoreFile(bobFile, []byte(contentOne))
-	// 		Expect(err).To(BeNil())
-	// 		//Init charles
-	// 		_, err = bob.LoadFile(aliceFile)
-	// 		Expect(err).ToNot(BeNil())
-	// 	})
-	// })
-
-	// Describe("Test4.5", func() {
-	// 	Specify("Test4.4: CreateInvitation wrong username or filename", func() {
-	// 		//Init alice
-	// 		alice, err = client.InitUser("alice", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		err = alice.StoreFile(aliceFile, []byte(contentOne))
-	// 		Expect(err).To(BeNil())
-	// 		//Init bob
-	// 		bob, err = client.InitUser("bob", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		err = bob.StoreFile(bobFile, []byte(contentOne))
-	// 		Expect(err).To(BeNil())
-	// 		//test
-	// 		_, err = alice.CreateInvitation(aliceFile, "charles")
-	// 		Expect(err).ToNot(BeNil())
-	// 		_, err = alice.CreateInvitation("wrong", "bob")
-	// 		Expect(err).ToNot(BeNil())
-	// 	})
-	// })
-
-	// Describe("Test4.4", func() {
-	// 	Specify("Test4.4: CreateInvitation wrong username or filename", func() {
-	// 		//Init alice
-	// 		alice, err = client.InitUser("alice", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		err = alice.StoreFile(aliceFile, []byte(contentOne))
-	// 		Expect(err).To(BeNil())
-	// 		//Init bob
-	// 		bob, err = client.InitUser("bob", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		err = bob.StoreFile(bobFile, []byte(contentOne))
-	// 		Expect(err).To(BeNil())
-	// 		//Init charles
-	// 		_, err = alice.CreateInvitation(aliceFile, "charles")
-	// 		Expect(err).ToNot(BeNil())
-	// 		_, err = alice.CreateInvitation("wrong", "bob")
-	// 		Expect(err).ToNot(BeNil())
-	// 	})
-	// })
-
-	// Describe("Test5", func() {
-	// 	Specify("Test5:intergation", func() {
-	// 		var DSmap map[userlib.UUID][]byte
-	// 		var DSmap_after map[userlib.UUID][]byte
-	// 		var k1 []userlib.UUID
-	// 		alice, err = client.InitUser("alice", defaultPassword)
-	// 		Expect(err).To(BeNil())
-	// 		//分别获取之前和之后的ds数据，将增加的内容，进行修改，然后进行完整性检验。
-	// 		//DSmap = make(map[userlib.UUID][]byte)
-	// 		DSmap = userlib.DatastoreGetMap()
-	// 		//user integration
-	// 		for k, _ := range DSmap {
-	// 			k1 = append(k1, k)
-	// 		}
-	// 		userlib.DatastoreSet(k1[0], []byte("broken"))
-	// 		userlib.DatastoreSet(k1[1], []byte("broken"))
-	// 		aliceDesktop, err = client.GetUser("alice", defaultPassword)
-	// 		Expect(err).ToNot(BeNil())
-	// 		err = alice.StoreFile(aliceFile, []byte(contentOne))
-	// 		//userlib.DebugMsg("err: %v", err)
-	// 		//DSmap_after = make(map[userlib.UUID][]byte)
-	// 		DSmap_after = userlib.DatastoreGetMap()
-	// 		//userlib.DebugMsg("mapbefore: %v", DSmap)
-	// 		//userlib.DebugMsg("mapafter: %v", DSmap_after)
-
-	// 		for k, _ := range DSmap_after {
-	// 			//userlib.DebugMsg("k DSmap[k]: [%v,%v]", k, DSmap[k])
-	// 			if (k != k1[0] || k!=k1[1]) {
-	// 				userlib.DatastoreSet(k, []byte("broken"))
-
-	// 			}
-
-	// 		}
-	// 		//userlib.DebugMsg("mapafter CHANGE: %v", DSmap_after)
-
-	// 		_, err = alice.LoadFile(aliceFile)
-	// 		Expect(err).ToNot(BeNil())
-	// 	})
-	// })
-
 	Describe("Test6", func() {
 		Specify("Test6: Appending empty file", func() {
 			userlib.DebugMsg("Initializing user Alice and Bob..")
@@ -1100,10 +982,6 @@ var _ = Describe("Client Tests", func() {
 			userlib.DebugMsg("Getting user Alice with wrong password.")
 			alice, err = client.GetUser("Alice", emptyString)
 			Expect(err).ToNot(BeNil())
-
-			// userlib.DebugMsg("Getting user Alice with wrong password.")
-			// alice, err = client.GetUser("alice", "")
-			// Expect(err).ToNot(BeNil())
 		})
 	})
 
@@ -1178,8 +1056,6 @@ var _ = Describe("Client Tests", func() {
 			data2, err := aliceLaptop.LoadFile(aliceFile)
 			Expect(err).To(BeNil())
 			Expect(data2).To(Equal([]byte(contentOne)))
-
 		})
-
 	})
 })
